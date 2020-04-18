@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 const readline = require('readline');
-const argv = require('minimist')(process.argv.slice(2));
 const fs = require('fs');
 const md = require('markdown-it')();
 const Handlebars = require('handlebars');

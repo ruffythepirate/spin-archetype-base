@@ -2,18 +2,10 @@
 
 const fs = require('fs');
 
-const readline = require('readline');
+const standardIn = require('./lib/standardIn');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    terminal: true
-});
-
-const stdInLines = [];
-rl.on('line', function(line){
-    stdInLines.push(line);
-}).on('close', function() {
-   const filenames = stdInLines
+standardIn.withAllRead((allText) => {
+  const filenames = allText.split(' ')
 
    let outputObject;
    if(filenames.length === 1) {
