@@ -5,7 +5,8 @@ const fs = require('fs');
 const standardIn = require('./lib/standardIn');
 
 standardIn.withAllRead((allText) => {
-  const filenames = allText.split(' ')
+  const filenames = allText.split('\n')
+
 
    let outputObject;
    if(filenames.length === 1) {
