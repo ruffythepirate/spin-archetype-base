@@ -26,10 +26,11 @@ rl.on('line', function(line){
     // 5. writes content to file without extension.
     const fileExtension = path.extname(outputPathWithExtension);
     const outputPath = fileExtension.length > 0 ? outputPathWithExtension.slice(0, -fileExtension.length)
-        : outputPathWithExtension;
+    : outputPathWithExtension;
+    const outputPathWithHtmlExtension = outputPath + '.html'
 
-    console.log("writing to", outputPath)
-    fs.writeFileSync(outputPath, stdInLines.join('\n'));
+    console.log("writing to", outputPathWithHtmlExtension)
+    fs.writeFileSync(outputPathWithHtmlExtension, stdInLines.join('\n'));
 });
 
 function getValue(parameterName, environmentVariableName) {
