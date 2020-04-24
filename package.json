@@ -8,7 +8,9 @@
     "markdown-it": "^10.0.0",
     "minimist": "^1.2.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest-when": "^2.7.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

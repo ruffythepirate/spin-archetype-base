@@ -1,21 +1,10 @@
 #! /usr/bin/env node
 
-const readline = require('readline');
-const md = require('markdown-it')();
+const standardIn = require('./lib/standardIn');
+const lib = require('./lib/markdown');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    terminal: true
-});
 
-const stdInLines = [];
-rl.on('line', function(line){
-    stdInLines.push(line);
-}).on('close', function() {
-    const allInput = stdInLines.join('\n');
-
-    const renderedContent = md.render(allInput);
+standardIn.withAllRead((content) => {
+    const renderedContent = lib.render(content);
     console.log(renderedContent)
 });
-
-
