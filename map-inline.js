@@ -5,8 +5,8 @@ const standardIn = require('./lib/standardIn');
 
 const config = mapInline.parseConfiguration(process.argv.splice(2))
 
-
 const allInlineMappedObjects = [];
+
 standardIn.forEachObject(async (object) => {
     const finalCommand = mapInline.replacePlaceholders(config.command, object)
 
