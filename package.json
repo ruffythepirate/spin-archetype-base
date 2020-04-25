@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "handlebars": "^4.7.6",
+    "highlight.js": "^10.0.0",
     "markdown-it": "^10.0.0",
     "minimist": "^1.2.5"
   },
