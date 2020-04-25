@@ -1,6 +1,15 @@
 #! /usr/bin/env node
 
 const readline = require('readline');
+const standardIn = require('./lib/standardIn');
+const jqmerge = require('./lib/jqmerge');
+
+
+standardIn.withAllObjects((objects) => {
+    const result = jqmerge.mergeObjects(objects);
+
+});
+
 
 const rl = readline.createInterface({
     input: process.stdin,
