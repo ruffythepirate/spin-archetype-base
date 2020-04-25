@@ -3,7 +3,7 @@ const lib = require('./lib/write-entry-html');
 const standardIn = require('./lib/standardIn');
 
 standardIn.withAllRead((content) => {
-    const arguments = lib.getArguments();
+    const args = lib.getArguments();
 
-    lib.writeFile(argv, content);
+    lib.writeFile(args, content);
 });
