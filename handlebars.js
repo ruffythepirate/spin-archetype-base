@@ -32,24 +32,24 @@ rl.on('line', function(line){
     }
 });
 
-function getOverrideTemplatePath() {
+function getOverrideTemplateDirPath() {
     return argv.otp || argv["override-templates-path"] || process.env["OVERRIDE_TEMPLATES_PATH"]
 }
 
-function getDefaultTemplatePath() {
+function getDefaultTemplateDirPath() {
     return argv.dtp || argv["default-templates-path"] || process.env["DEFAULT_TEMPLATES_PATH"] || './templates'
 }
 
 function loadTemplate(templateName) {
-    // first check override folder (if exists)
-    let overridePath = getOverrideTemplatePath();
+    // first check override dir (if exists)
+    let overridePath = getOverrideTemplateDirPath();
     if(overridePath) {
         const template = tryLoadTemplate(overridePath, templateName);
         if (template)
             return template;
     }
     // then check /spin/templates folder
-    const defaultPath = getDefaultTemplatePath();
+    const defaultPath = getDefaultTemplateDirPath();
     const template = tryLoadTemplate(defaultPath, templateName);
     if (template)
         return template;
@@ -58,7 +58,7 @@ function loadTemplate(templateName) {
     throw Error(`Unable to find template for ${templateName}, looked in ${overridePath} and ${defaultPath}`)
 }
 
-function tryLoadTemplate(path, templateName) {
-    filePath = `${path}/${templateName}.handlebars`;
+function tryLoadTemplate(dirPath, templateName) {
+    const filePath = `${dirPath}/${templateName}.handlebars`;
     return fs.existsSync(filePath) && fs.readFileSync(filePath, 'utf-8');
 }
