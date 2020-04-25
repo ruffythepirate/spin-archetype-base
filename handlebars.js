@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 const readline = require('readline');
+
+const output = require('./lib/common/output-helper');
 const fs = require('fs');
 const md = require('markdown-it')();
 const Handlebars = require('handlebars');
@@ -23,9 +25,10 @@ rl.on('line', function(line){
 
     if(argv.inline) {
         parameters.content = result;
-        console.log(JSON.stringify(parameters, null, 2));
+        output.outputJson(parameters);
     } else {
         console.log(result);
+        output.outputJson(result);
     }
 });
 

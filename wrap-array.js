@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 const standardIn = require('./lib/standardIn');
+const output = require('./lib/common/output-helper');
 
 standardIn.withAllReadAsArray((lines) => {
-    console.log(JSON.stringify(lines));
+    output.outputJson(lines);
 })

@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const fs = require('fs');
-
+const output = require('./lib/common/output-helper');
 const standardIn = require('./lib/standardIn');
 
 standardIn.withAllRead((allText) => {
@@ -17,7 +17,8 @@ standardIn.withAllRead((allText) => {
            return acc;
        }, [])
    }
-    console.log(JSON.stringify(outputObject, null , 2));
+
+   output.outputJson(outputObject);
 });
 
 function extractMetadata(filename) {

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const output = require('./lib/common/output-helper');
 const mapInline = require('./lib/map-inline');
 const standardIn = require('./lib/standardIn');
 const {execSync} = require('child_process')
@@ -19,5 +20,5 @@ standardIn.forEachLine((line) => {
     object[config.property] = commandOutput;
     allInlineMappedObjects.push(object);
 }, () => {
-    console.log(JSON.stringify(allInlineMappedObjects, null, 2));
+    output.outputJson(allInlineMappedObjects);
 });
