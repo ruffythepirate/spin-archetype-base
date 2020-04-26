@@ -5,6 +5,6 @@ const output = require('./lib/common/output-helper');
 
 standardIn.withAllObjects((objects) => {
     args = lib.parseArguments();
-    objects = lib.sort(objects, args.property, true);
-    output.outputJson(objects);
+    const result= lib.sort(objects, args.property, true);
+    output.outputJson(result);
 })
