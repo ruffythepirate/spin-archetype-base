@@ -28,7 +28,6 @@ rl.on('line', function(line){
         output.outputJson(parameters);
     } else {
         console.log(result);
-        output.outputJson(result);
     }
 });
 
