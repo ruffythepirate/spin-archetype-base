@@ -27,7 +27,7 @@ function extractMetadata(filename) {
     const [rootName, ...extensions] = filename.split('.');
     const metadata = {
         filename: filename,
-        rootName: rootName,
+        path: rootName,
         extension: extensions.join('.'),
         createdAt: convertMsToIsoDate(fileStats.birthtimeMs),
         updatedAt: convertMsToIsoDate(fileStats.mtimeMs),
